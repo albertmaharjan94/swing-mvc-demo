@@ -13,7 +13,6 @@ public class MySqlConnection implements Database {
             String username = "root";
             String password = "password";
             String database = "demo";
-            Class.forName("com.mysql.jdbc.Driver");
             Connection connection;
             connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/" + database, username, password

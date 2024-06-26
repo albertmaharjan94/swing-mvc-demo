@@ -34,35 +34,57 @@ public class SignupScreen extends javax.swing.JFrame {
         usernameField = new javax.swing.JTextField();
         emailField = new javax.swing.JTextField();
         signupButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         loginButton.setText("Login");
-        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(143, 272, 100, 32));
-        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 163, 237, 41));
-        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 80, 237, 42));
-        jPanel1.add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 237, 36));
+        jPanel1.add(loginButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 100, 32));
+        jPanel1.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 310, 41));
+        jPanel1.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 310, 42));
+        jPanel1.add(emailField, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 320, 36));
 
         signupButton.setText("Signup");
-        jPanel1.add(signupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 272, 100, 32));
+        jPanel1.add(signupButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 100, 32));
+
+        jLabel2.setText("Password");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+
+        jLabel3.setText("Email");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel4.setText("Username");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Fira Sans", 0, 24)); // NOI18N
+        jLabel1.setText("Signup");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel1)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,6 +128,10 @@ public class SignupScreen extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField emailField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;

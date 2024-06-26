@@ -18,6 +18,31 @@ import java.util.logging.Logger;
 public class UserDao {
     MySqlConnection mysql = new MySqlConnection();
     
+    public UserData login(LoginRequest login){
+        Connection conn = mysql.openConnection();
+        String sql = "SELECT * FROM users where email = ? and password = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, login.getEmail());
+            pstmt.setString(2, login.getPassword());
+            ResultSet result = pstmt.executeQuery();
+            if(result.next()){
+                UserData user  = new UserData(
+                    result.getString("email"),
+                    result.getString("username"),
+                    result.getString("password")
+                );
+                user.setId(result.getInt("id"));
+                
+                return user;
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            mysql.closeConnection(conn);
+        }
+        return null;
+    }
+    
     public boolean checkUser(UserData user){
         Connection conn = mysql.openConnection();
         String sql = "SELECT * FROM users where email = ? or username = ?";
@@ -49,32 +74,6 @@ public class UserDao {
         }
     }
     
-    public UserData login(LoginRequest login){
-        Connection conn = mysql.openConnection();
-        String sql = "SELECT * FROM users where email = ? and password = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, login.getEmail());
-            pstmt.setString(2, login.getPassword());
-            ResultSet result = pstmt.executeQuery();
-            if(result.next()){
-                UserData user  = new UserData(
-                    result.getString("email"),
-                    result.getString("password"),
-                    result.getString("username")
-                );
-                user.setId(result.getInt("id"));
-                
-                return user;
-            }else{
-                return null;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            mysql.closeConnection(conn);
-        }
-        return null;
-    }
     
     public ArrayList<UserData> getAllUserData(){
         Connection conn = mysql.openConnection();

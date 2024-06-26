@@ -96,8 +96,8 @@ public class DashboardController {
         System.out.println("Making table");
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("Id");
-        model.addColumn("Username");
         model.addColumn("Email");
+        model.addColumn("Username");
         ArrayList<UserData> data = userDao.getAllUserData();
         for (UserData user : data) {
             model.addRow(new Object[]{user.getId(), user.getEmail(), user.getUsername()});
@@ -118,8 +118,8 @@ public class DashboardController {
                 int row = dashboard.getUserTable().getSelectedRow();
                 if (row >= 0) {
                     int id = Integer.parseInt(dashboard.getUserTable().getValueAt(row, 0).toString());
-                    String username = dashboard.getUserTable().getValueAt(row, 1).toString();
-                    String email = dashboard.getUserTable().getValueAt(row, 2).toString();
+                    String username = dashboard.getUserTable().getValueAt(row, 2).toString();
+                    String email = dashboard.getUserTable().getValueAt(row, 1).toString();
                     dashboard.getUsernameField().setText(username);
                     dashboard.getEmailField().setText(email);
                     dashboard.getIdField().setText("" + id);
